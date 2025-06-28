@@ -1,0 +1,226 @@
+.invoice-box {
+    max-width: 720px;
+    margin: 20px auto;
+    /* background: #edfefa; */
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #000;
+    border: 2px solid #2a8ff7;
+}
+
+.header-img,
+.footer-img {
+    width: 100%;
+    display: block;
+}
+
+.invoice-details {
+    padding: 20px;
+    font-size: 14px;
+}
+
+.company-info, .customer-info, .bill-to {
+    margin-bottom: 15px;
+}
+
+.company-info .icon-box,
+.customer-info .icon-box {
+    display: inline-block;
+    background-color: #2a8ff7;
+    color: #fff;
+    border-radius: 5px;
+    padding: 4px 7px;
+    margin-right: 8px;
+}
+
+.invoice-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+.invoice-table th {
+    background: #2a8ff7;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.invoice-table td {
+    padding: 8px;
+    text-align: center;
+    background-color: #d8fdf1;
+    font-size: 14px;
+}
+
+.totals {
+    padding: 15px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    /* display: flex; */
+    float: right;
+    padding-right: 50px;
+}
+
+.note {
+    background-color: #2a8ff7;
+    color: #fff;
+    text-align: center;
+    font-weight: 500;
+    padding: 8px;
+    margin-bottom: 0;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.actions .btn {
+    padding: 10px 20px;
+    background-color: #00f8be;
+    border: none;
+    color: black;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.actions .btn.download-btn {
+    background-color: #007bff;
+    color: white;
+}
+
+.bx {
+    margin-right: 10px;
+}
+
+.billing-details {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.invoice-details {
+    padding: 50px;
+}
+
+/* ========== Mobile (320px–767px) ========== */
+@media (min-width: 320px) and (max-width: 767px) {
+    .invoice-box {
+        width: 95%;
+        margin: 10px auto;
+        border-width: 2px;
+    }
+
+    .invoice-details {
+        padding: 20px;
+        font-size: 13px;
+    }
+
+    .billing-details {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .invoice-table th, .invoice-table td {
+        font-size: 13px;
+        padding: 8px;
+    }
+
+    .totals {
+        float: none;
+        text-align: right;
+        padding-right: 20px;
+        font-size: 15px;
+    }
+
+    .note {
+        font-size: 13px;
+        padding: 6px;
+    }
+
+    .actions {
+        flex-direction: column;
+        gap: 15px;
+        padding: 10px;
+    }
+
+    .actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .header-img, .footer-img {
+        height: auto;
+    }
+}
+
+
+/* ========== Tablet (768px–1023px) ========== */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .invoice-box {
+        width: 90%;
+    }
+
+    .invoice-details {
+        padding: 30px;
+        font-size: 14px;
+    }
+
+    .billing-details {
+        flex-direction: row;
+        gap: 40px;
+    }
+
+    .invoice-table th, .invoice-table td {
+        font-size: 14px;
+    }
+
+    .totals {
+        float: right;
+        padding-right: 40px;
+        font-size: 16px;
+    }
+
+    .note {
+        font-size: 14px;
+    }
+
+    .actions .btn {
+        font-size: 15px;
+    }
+}
+
+
+/* ========== Small Desktop (1024px–1300px) ========== */
+@media (min-width: 1024px) and (max-width: 1300px) {
+    .invoice-box {
+        max-width: 95%;
+    }
+
+    .invoice-details {
+        padding: 40px;
+    }
+
+    .invoice-table th, .invoice-table td {
+        font-size: 15px;
+    }
+
+    .totals {
+        padding-right: 50px;
+    }
+
+    .note {
+        font-size: 15px;
+    }
+
+    .actions .btn {
+        font-size: 16px;
+    }
+}

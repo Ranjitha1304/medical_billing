@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="overview-wrapper">
+    <div class="cards">
+        <div class="card">
+            <div class="icon">&#8377;</div>
+            <div class="details">
+                <p>Total Revenue</p>
+                <h3>₹{{ total_revenue | round }}</h3>
+            </div>
+        </div>
+        <div class="card">
+            <div class="icon">
+                <img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAATRJREFUSEvNldF1gkAQRd9QQDZ2EAuQCDSgneivKSJaRPKrVqINKAYLCB0YLIDx4HFxRXYXFTzhd9i5783szBIa/qjh/HgewE3WfHITAzyPRDCuw13uQAEc8zop9Tctb/ko5KpEnX04IOYpM5bbV79fO6C7C99Sh3/rclHa5PdkNWXQ4AH1cST8dna+FKC6uBNiBmRJO3/rBRF6TDTcvnizKqCzc57IW6idA9lsALkaG0TeRCel9qblxdoSZYFbmy0FEXj2I4KhFGOcZDdZjQH6LB4qc6IrqRGguLCWSZYnEv5FTusuksqAc+OKDkxOrYDuLuylDi9sDdYNphWQHZQKTRDdaqkEqKJe908lgJuEXwCPAPqOhPehJjPFjHNwmSR/K1C8JeqaL8ZuADTsoPEe/GvAAYtKpxmq1pQJAAAAAElFTkSuQmCC" />
+            </div>
+            <div class="details">
+                <p>Stock</p>
+                <h3>{{ total_stock }}</h3>
+            </div>
+        </div>
+        <div class="card">
+            <div class="icon">❌</div>
+            <div class="details">
+                <p>Out of Stock</p>
+                <h3>{{ out_of_stock }}</h3>
+            </div>
+        </div>
+        <div class="card">
+            <div class="icon">⏰</div>
+            <div class="details">
+                <p>Expired</p>
+                <h3>{{ expired }}</h3>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="sales-section">
+
+        <div class="chart-container">
+            <div class="sales-header">
+
+                <h2>Sales Overview</h2>
+                <h2>Monthly</h2>
+            </div>
+
+            <canvas id="salesChart"></canvas>
+            <script id="months-data" type="application/json">{{ months | tojson }}</script>
+            <script id="sales-data" type="application/json">{{ monthly_sales | tojson }}</script>
+
+
+
+        </div>
+        <div class="purchase-report">
+            <h2>Purchase Report</h2>
+            <div class="report-item">
+                <div class="icon">🛒</div>
+                <div>
+                    <p>Items Ordered</p>
+                    <h3>{{ today_items }}</h3>
+                </div>
+            </div>
+            <div class="report-item">
+                <div class="icon">💰</div>
+                <div>
+                    <p>Amount Received</p>
+                    <h3>₹{{ today_amount }}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{{ url_for('static', filename='js/chart.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/billing.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="invoice-container">
+    <h2>Invoice</h2>
+
+    <form method="POST" action="{{ url_for('main.generate_bill') }}">
+
+        <div class="form-header">
+            <div class="left-top">
+                <label>Invoice Date:
+                    <input type="text" name="date" value="{{ current_date }}" readonly>
+                </label>
+                <label>Invoice Number:
+                    <input type="text" name="invoice_no" value="{{ invoice_no }}" readonly>
+                </label>
+            </div>
+            <div class="right-top">
+                <label>D.L No:
+                    <input type="text" value="TN-14-20-00404" readonly>
+                </label>
+                <label>License No:
+                    <input type="text" value="MRN-55432" readonly>
+                </label>
+            </div>
+        </div>
+
+        <div class="form-bill">
+            <div class="bill-from">
+                <h3>Bill From</h3>
+                <p><strong>Kani Medicals</strong></p>
+                <p>8900278569</p>
+                <p>10/95, Kani Medical, Kamarajar street,<br>Kurmbalaperi Vilakku, Pavoorchatram</p>
+            </div>
+            <div class="bill-to">
+                <h3>Bill To</h3>
+                <label>Name<span class="required">*</span> :
+                    <input type="text" name="customer_name" required pattern="[A-Za-z ]{3,20}">
+                </label>
+                <label>Phone<span class="required">*</span> :
+                    <input type="text" name="customer_phone" required pattern="[0-9]{10}">
+                </label>
+                <label>Address     :
+                    <input type="text" name="customer_address">
+                </label>
+            </div>
+        </div>
+
+
+        <table>
+            <thead>
+                <tr>
+                    <th>S.No</th>
+                    <th>Item Summary</th>
+                    <th>Batch No</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="cart-items">
+                <!-- Filled dynamically via JS -->
+            </tbody>
+        </table>
+
+        <div class="totals">
+            <label>Discount %: <input type="number" name="discount" id="discount" min="0" max="100" value="0"></label>
+            <h3>Total: ₹<span id="final-total">0</span></h3>
+        </div>
+
+        <div class="payment-summary">
+            <p><strong>Payment Mode:</strong> Cash</p>
+            <p><strong>Final Total (Rounded): ₹<span id="rounded-total">0</span></strong></p>
+        </div>
+
+        <input type="hidden" name="cart_data" id="cart-data">
+        <input type="submit" value="Generate Bill" class="btn-submit">
+    </form>
+</div>
+
+<script src="{{ url_for('static', filename='js/billing.js') }}"></script>
+{% endblock %}

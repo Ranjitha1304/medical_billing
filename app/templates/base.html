@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ title }}</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    {% block extra_css %}{% endblock %}
+</head>
+
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">Kani Medicals</div>
+
+            <nav>
+  <ul>
+    <li class="{% if 'Dashboard' in title %}active{% endif %}">
+      <i class='bx bx-palette' style="color: {% if 'Dashboard' in title %}black{% else %}white{% endif %};"></i>
+      <a href="{{ url_for('main.overview') }}"
+         style="color: {% if 'Dashboard' in title %}black{% else %}white{% endif %};">Overview</a>
+    </li>
+    <li class="{% if 'Products' in title %}active{% endif %}">
+      <i class='bx bxs-shapes' style="color: {% if 'Products' in title %}black{% else %}white{% endif %};"></i>
+      <a href="{{ url_for('main.products') }}"
+         style="color: {% if 'Products' in title %}black{% else %}white{% endif %};">Products</a>
+    </li>
+    <li class="{% if 'Billing' in title %}active{% endif %}">
+      <i class='bx bx-receipt' style="color: {% if 'Billing' in title %}black{% else %}white{% endif %};"></i>
+      <a href="{{ url_for('main.billing') }}" style="color: {% if 'Billing' in title %}black{% else %}white{% endif %};">Billing</a>
+    </li>
+    <li class="{% if 'Invoice' in title %}active{% endif %}">
+      <i class='bx bx-file' style="color: {% if 'Invoice' in title %}black{% else %}white{% endif %};"></i>
+      <a href="#" style="color: {% if 'Invoice' in title %}black{% else %}white{% endif %};">Invoice</a>
+    </li>
+  </ul>
+</nav>
+
+        </aside>
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+
+    {% block extra_js %}{% endblock %}
+
+</body>
+
+</html>
+
+
+
+

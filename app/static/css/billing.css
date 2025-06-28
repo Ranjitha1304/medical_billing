@@ -1,0 +1,387 @@
+.invoice-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    background: #fff;
+    border: 3px solid #2A8FF7;
+    padding: 30px;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.invoice-container h2 {
+    text-align: center;
+    color: #2A8FF7;
+    margin-bottom: 25px;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.form-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.form-top .left, .form-top .right {
+    flex: 1;
+    min-width: 300px;
+}
+
+.form-top p {
+    margin: 10px 0;
+    font-weight: 500;
+    color: #333;
+}
+
+.form-top input[type="text"] {
+    width: 100%;
+    padding: 8px 10px;
+    margin-top: 4px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: #f7f7f7;
+}
+
+.right h3 {
+    margin-top: 20px;
+    color: #2A8FF7;
+    font-size: 18px;
+}
+
+.right p {
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+}
+
+table th, table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+}
+
+table th {
+    background-color: #2A8FF7;
+    color: #fff;
+}
+
+.totals {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 25px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.totals label input[type="number"] {
+    width: 70px;
+    margin-left: 10px;
+    padding: 5px;
+    font-size: 14px;
+}
+
+.btn-submit {
+    display: block;
+    margin: 30px auto 0;
+    background-color: #00F8BE;
+    color: #000;
+    padding: 10px 30px;
+    border: none;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #00e0aa;
+}
+
+button {
+    padding: 3px 8px;
+    background: #2A8FF7;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    font-size: 14px;
+    cursor: pointer;
+    margin: 0 4px;
+}
+
+button:hover {
+    background: #0074d9;
+}
+
+
+.payment-summary {
+    margin-top: 20px;
+    padding: 10px 0;
+    border-top: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    font-size: 16px;
+    color: #000;
+}
+
+
+.form-header {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px 50px;
+    margin-bottom: 30px;
+}
+
+.form-header .left-top,
+.form-header .right-top {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Label + input side-by-side inline */
+.form-header label {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    gap: 10px;
+}
+
+.form-header input[type="text"] {
+    flex: 1;
+    padding: 7px 10px;
+    font-size: 14px;
+    border: 1px solid #2A8FF7;
+    border-radius: 4px;
+    background-color: #f7f7f7;
+    
+}
+
+/* BILL FROM / BILL TO BOXES */
+.form-bill {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.bill-from, .bill-to {
+    border: 1px solid #2A8FF7;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fefefe;
+}
+
+.bill-from h3, .bill-to h3 {
+    color: #2A8FF7;
+    font-size: 18px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.bill-from p {
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Inline label-input for Bill To */
+.bill-to label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.bill-to input {
+    flex: 1;
+    padding: 7px 10px;
+    font-size: 14px;
+    border: 1px solid #2A8FF7;
+    border-radius: 4px;
+    background-color: #f7f7f7;
+}
+
+.required {
+    color: red;
+    margin-left: 4px;
+}
+
+@media (max-width: 768px) {
+    .form-header,
+    .form-bill {
+        flex-direction: column;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .form-top {
+        flex-direction: column;
+    }
+
+    .totals {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+
+    .totals label {
+        width: 100%;
+    }
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .form-header {
+        grid-template-columns: 1fr;
+    }
+
+    .form-bill {
+        grid-template-columns: 1fr;
+    }
+
+    .form-header label,
+    .bill-to label {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .form-header label input,
+    .bill-to label input {
+        width: 100%;
+    }
+}
+
+/* ========== Mobile (320px–767px) ========== */
+@media (min-width: 320px) and (max-width: 767px) {
+    .invoice-container {
+        padding: 20px 15px;
+    }
+
+    .form-header,
+    .form-bill {
+        grid-template-columns: 1fr;
+    }
+
+    .form-header label,
+    .bill-to label {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .form-header label input,
+    .bill-to label input {
+        width: 100%;
+    }
+
+    .totals {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .payment-summary {
+        flex-direction: column;
+        gap: 15px;
+        font-size: 15px;
+    }
+
+    table {
+        font-size: 13px;
+        overflow-x: auto;
+        display: block;
+    }
+
+    .btn-submit {
+        width: 100%;
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    .bill-from,
+    .bill-to {
+        padding: 15px;
+    }
+
+    .form-header input[type="text"] {
+    padding: 7px 0px;
+    }
+}
+
+/* ========== Tablet (768px–1023px) ========== */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .invoice-container {
+        padding: 25px;
+    }
+
+    .form-header,
+    .form-bill {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .totals {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .payment-summary {
+        gap: 30px;
+        font-size: 15px;
+    }
+
+    .btn-submit {
+        width: 60%;
+    }
+
+    table {
+        font-size: 14px;
+    }
+}
+
+/* ========== Small Desktop (1024px–1300px) ========== */
+@media (min-width: 1024px) and (max-width: 1300px) {
+    .invoice-container {
+        max-width: 95%;
+        padding: 30px;
+    }
+
+    .form-header,
+    .form-bill {
+        gap: 30px;
+    }
+
+    .totals {
+        justify-content: space-between;
+    }
+
+    .btn-submit {
+        width: 40%;
+    }
+
+    table {
+        font-size: 15px;
+    }
+}

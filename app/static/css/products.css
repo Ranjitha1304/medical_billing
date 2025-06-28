@@ -1,0 +1,155 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+table th,
+table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+    background-color: #EDFEFA;
+
+}
+
+table th {
+    background-color: #EDFEFA;
+    color: #2A8FF7;
+    font-weight: 500;
+}
+
+table td img {
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+table td img:hover {
+    transform: scale(1.2);
+}
+
+
+.cart-btn {
+    background-color: #2A8FF7;   
+    color: white;                
+    border: none;
+    border-radius: 50%;          
+    padding: 8px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+}
+
+.cart-btn:hover {
+    background-color: #1f6ed1;   
+}
+
+.cart-btn i {
+    vertical-align: middle;
+    font-size: 18px;
+}
+
+
+.search-box {
+    display: flex;
+    align-items: center;
+    border: 2px solid #2A8FF7;
+    border-radius: 5px;
+    padding: 6px 10px;
+    width: 250px;
+    margin-bottom: 15px;
+}
+
+.search-box i {
+    color: #26f3d4;
+    font-size: 20px;
+    margin-right: 8px;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    font-size: 14px;
+    width: 100%;
+}
+
+/* =============== Mobile (320px–767px) =============== */
+@media (min-width: 320px) and (max-width: 767px) {
+    .search-box {
+        width: 100%;
+        flex-direction: row;
+        padding: 5px 8px;
+        font-size: 14px;
+    }
+
+    .search-box i {
+        font-size: 16px;
+    }
+
+    table {
+        font-size: 12px;
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    table th,
+    table td {
+        padding: 8px;
+    }
+
+    .cart-btn {
+        padding: 6px 8px;
+        font-size: 14px;
+    }
+
+    .cart-btn i {
+        font-size: 14px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .btn {
+        display: block;
+        float: none;
+        width: 100%;
+        text-align: center;
+        margin: 10px 0;
+    }
+}
+
+/* =============== Tablet (768px–1023px) =============== */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .search-box {
+        width: 60%;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    .btn {
+        float: right;
+        margin-bottom: 15px;
+    }
+}
+
+/* =============== Small Desktop (1024px–1300px) =============== */
+@media (min-width: 1024px) and (max-width: 1300px) {
+    .search-box {
+        width: 300px;
+    }
+
+    table {
+        font-size: 15px;
+    }
+
+    .btn {
+        float: right;
+    }
+}

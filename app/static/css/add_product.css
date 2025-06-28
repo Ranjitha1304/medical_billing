@@ -1,0 +1,154 @@
+.product-form {
+    background: #EDFEFA;
+    padding: 25px;
+    border-radius: 10px;
+    max-width: 1000px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    margin-top: 20px;
+    border:1px solid #2A8FF7;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"] {
+    padding: 8px 12px;
+    border: 2px solid #2A8FF7;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.required {
+    color: red;
+    margin-left: 4px;
+}
+
+button,
+input[type="submit"] {
+    padding: 15px 30px;
+    background-color: #2A8FF7;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: block;
+    margin: 50px auto;
+
+}
+
+button:hover,
+input[type="submit"]:hover {
+    background-color: #0071cc;
+}
+
+/* Responsive for tablet & mobile */
+@media (min-width: 320px) and (max-width: 767px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .form-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1300px) {
+    .form-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* ========== Mobile (320px–767px) ========== */
+@media (min-width: 320px) and (max-width: 767px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product-form {
+        padding: 15px;
+        margin: 15px 10px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="month"] {
+        font-size: 13px;
+        padding: 8px 10px;
+    }
+
+    button,
+    input[type="submit"] {
+        width: 100%;
+        font-size: 16px;
+        padding: 12px;
+        margin: 20px 0;
+    }
+
+    h2 {
+        font-size: 22px;
+        text-align: center;
+    }
+}
+
+/* ========== Tablet (768px–1023px) ========== */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .form-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .product-form {
+        padding: 20px;
+        margin: 20px auto;
+    }
+
+    button,
+    input[type="submit"] {
+        width: 50%;
+        font-size: 16px;
+        padding: 12px;
+        margin: 30px auto;
+    }
+
+    h2 {
+        text-align: center;
+    }
+}
+
+/* ========== Small Desktop (1024px–1300px) ========== */
+@media (min-width: 1024px) and (max-width: 1300px) {
+    .form-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .product-form {
+        max-width: 95%;
+        padding: 30px;
+    }
+
+    button,
+    input[type="submit"] {
+        width: 40%;
+        padding: 14px;
+        font-size: 17px;
+    }
+}
+

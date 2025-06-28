@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/products.css') }}">
+{% endblock %}
+
+{% block content %}
+<h2>Product List</h2>
+<div class="search-box">
+    <i class='bx bx-search' style='color:#2363e6'  ></i></i>
+    <input type="text" id="searchInput" placeholder="Search">
+</div>
+
+<a href="{{ url_for('main.add_product') }}" class="btn">+ Create New</a>
+<table>
+    <thead>
+        <tr>
+            <th>S.No</th>
+            <th>Product</th>
+            <th>Batch No</th>
+            <th>Expiry Date</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Cart</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for p in products %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ p.name }}</td>
+            <td>{{ p.batch_no }}</td>
+            <td>{{ p.expiry_date.strftime('%m/%Y') }}</td>
+            <td>{{ p.price }}</td>
+            <td>{{ p.stock }}</td>
+            <td>
+                <button class="cart-btn" title="Add to cart"  onclick='addToCart(event,{{ p.id }}, {{ p.name|tojson }}, {{ p.batch_no|tojson }}, {{ p.price }}, {{ p.stock }}, "{{ p.expiry_date.isoformat() }}")'>
+                    <i class='bx bx-cart'></i>
+                </button>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+<script>
+    function addToCart(event, id, name, batch_no, price, stock, expiryDate) {
+        event.preventDefault();
+
+        // Convert expiry date to a Date object
+        const today = new Date();
+        const expiry = new Date(expiryDate);
+
+        if (stock <= 0) {
+            alert(`${name} is out of stock and cannot be added to the cart.`);
+            return;
+        }
+
+        if (expiry < today) {
+            alert(`${name} is expired and cannot be added to the cart.`);
+            return;
+        }
+
+        let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+        const existing = cart.find(item => item.id === id);
+
+        if (existing) {
+            existing.quantity += 1;
+        } else {
+            cart.push({
+                id: id,
+                name: name,
+                batch_no: batch_no,
+                price: price,
+                quantity: 1
+            });
+        }
+
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert(name + " - added to cart");
+        window.location.href = "/billing";
+    }
+</script>
+
+
+<script>
+    document.getElementById("searchInput").addEventListener("input", function () {
+        const value = this.value.toLowerCase();
+        const rows = document.querySelectorAll("table tbody tr");
+
+        rows.forEach(row => {
+            const rowText = row.innerText.toLowerCase();
+            row.style.display = rowText.includes(value) ? "" : "none";
+        });
+    });
+</script>
+
+
+{% endblock %}
